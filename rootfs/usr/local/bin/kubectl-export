@@ -2,14 +2,14 @@
 
 set -e
 
-if [ $# -lt 1 ]; then
+if [[ $# -lt 1 || "$@" =~ "--help" ]]; then
     echo "Usage: <command> [--namespace <namespace>] [--output <output_file>] [--release <helm_release>]"
     echo "  <command>           : The command to execute. Choices: 'helm' and 'namespace'."
     echo "  --namespace, -n     : Specify the namespace."
     echo "  --release, -r       : Specify the Helm release. Required if the command is 'helm'."
     echo "  --output, -o        : Specify the output file. Optional."
     echo ""
-    exit 1
+    exit
 fi
 
 COMMAND="$1"

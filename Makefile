@@ -7,3 +7,7 @@ run:
 		--entrypoint /bin/sh \
 		--mount type=bind,source="$(config)",target=/mnt/kubeconfig.yaml,readonly \
 		kubernetes-exporter
+
+test:
+	@$(MAKE) setup
+	@$(CURDIR)/tests/feature/all.sh
