@@ -2,6 +2,8 @@
 
 set -e
 
+exit 1
+
 if [[ $# -lt 1 || "$@" =~ "--help" ]]; then
     echo "Usage: <command> [--namespace <namespace>] [--output <output_file>] [--release <helm_release>]"
     echo "  <command>           : The command to execute. Choices: 'helm' and 'namespace'."
