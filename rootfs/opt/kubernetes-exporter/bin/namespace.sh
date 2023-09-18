@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 for ARGUMENT in "$@"; do
   if [[ "$ARGUMENT" == --namespace=* ]]; then
     NAMESPACE="${ARGUMENT#*=}"
