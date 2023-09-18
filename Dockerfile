@@ -1,10 +1,6 @@
 ARG TOOLS_VERSION=v2.0.1
 
-FROM --platform=$BUILDPLATFORM ghcr.io/nedix/kubernetes-tools-docker:${TOOLS_VERSION}-scratch as tools
-
-FROM --platform=$BUILDPLATFORM alpine:3.18
-
-COPY --chown=nobody --from=tools / /
+FROM --platform=$BUILDPLATFORM ghcr.io/nedix/kubernetes-tools-docker:${TOOLS_VERSION}
 
 RUN apk add \
         bash \
