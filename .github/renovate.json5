@@ -9,9 +9,11 @@
   regexManagers: [
     {
       fileMatch: ["^Dockerfile$"],
-      matchStrings: ["ARG TOOLS_VERSION=(?<currentValue>.*?)\\n"],
-      datasourceTemplate: "github-releases",
-      depNameTemplate: "nedix/kubernetes-tools-docker"
+      matchStrings: ["ARG TOOLS_VERSION=(?<currentDigest>.*?)\\n"],
+      currentValueTemplate: "main",
+      datasourceTemplate: "git-tags",
+      depNameTemplate: "https://github.com/nedix/kubernetes-tools-docker",
+      versioningTemplate: "semver-coerced"
     },
   ],
 }
