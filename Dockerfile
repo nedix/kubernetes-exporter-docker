@@ -1,4 +1,4 @@
-ARG TOOLS_VERSION=v2.0.1
+ARG TOOLS_VERSION=v2.8.0
 
 FROM --platform=$BUILDPLATFORM ghcr.io/nedix/kubernetes-tools-docker:${TOOLS_VERSION}
 
