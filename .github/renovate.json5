@@ -10,8 +10,9 @@
     {
       fileMatch: ["^Dockerfile$"],
       matchStrings: ["ARG TOOLS_VERSION=(?<currentValue>.*?)\\n"],
-      datasourceTemplate: "github-releases",
-      depNameTemplate: "nedix/kubernetes-tools-docker"
+      datasourceTemplate: "git-tags",
+      depNameTemplate: "https://github.com/nedix/kubernetes-tools-docker",
+      versioningTemplate: "semver-coerced",
     },
   ],
 }
