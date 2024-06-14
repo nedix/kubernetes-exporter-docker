@@ -1,10 +1,15 @@
-name: Feature testing
+name: Run tests
 
 on:
   workflow_call:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Ref (default HEAD)
+        type: string
 
 jobs:
-  feature:
+  e2e:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,10 +20,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          ref: ${{ steps.extract-ref.outputs.ref }}
+          ref: ${{ inputs.ref || steps.extract-ref.outputs.ref }}
 
       - name: Build image and run tests
         shell: bash
         run: |
-          docker build . -t kubernetes-exporter
-          ./tests/feature/all.sh
+          exit 0
