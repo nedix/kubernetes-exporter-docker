@@ -4,15 +4,23 @@
     "/^release\\/.*/",
   ],
   enabledManagers: [
-    "regex",
+    "custom.regex",
+    "github-actions",
   ],
-  regexManagers: [
+  customManagers: [
     {
+      depNameTemplate: "Tools",
       fileMatch: ["^Dockerfile$"],
       matchStrings: ["ARG TOOLS_VERSION=(?<currentValue>.*?)\\n"],
       datasourceTemplate: "github-tags",
-      depNameTemplate: "nedix/kubernetes-tools-docker",
-      versioningTemplate: "semver-coerced",
+      packageNameTemplate: "nedix/kubernetes-tools-docker",
+    },
+  ],
+  packageRules: [
+    {
+      description: "Disable grouping for all dependencies",
+      matchPackagePatterns: [".*"],
+      groupName: null,
     },
   ],
 }
