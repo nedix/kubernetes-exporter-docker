@@ -1,4 +1,4 @@
-ARG TOOLS_VERSION=v0.59.0-alpine
+ARG TOOLS_VERSION=v0.63.0
 
 FROM --platform=$BUILDPLATFORM ghcr.io/nedix/kubernetes-tools-docker:${TOOLS_VERSION}
 
